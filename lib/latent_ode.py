@@ -8,12 +8,7 @@ class CoupledODE(VAE_Baseline):
 	def __init__(self, w_node_to_edge_initial,ode_hidden_dim, encoder_z0, decoder_node,decoder_edge, diffeq_solver,
 				 z0_prior, device, obsrv_std=None):
 
-		super(CoupledODE, self).__init__(
-			z0_prior=z0_prior,
-			device=device, obsrv_std=obsrv_std
-		)
-
-
+		super(CoupledODE, self).__init__(z0_prior = z0_prior, device = device, obsrv_std = obsrv_std)
 
 		self.encoder_z0 = encoder_z0
 		self.diffeq_solver = diffeq_solver
@@ -54,7 +49,7 @@ class CoupledODE(VAE_Baseline):
 
 		# ODE:Shape of sol_y #[ K*N + K*N*N, time_length, d], concat of node and edge.
 		# K_N is the index for node.
-		sol_y,K_N = self.diffeq_solver(first_point_enc,time_steps_to_predict,self.w_node_to_edge_initial)
+		sol_y, K_N = self.diffeq_solver(first_point_enc,time_steps_to_predict,self.w_node_to_edge_initial)
 
 		assert(not torch.isnan(sol_y).any())
 
@@ -71,7 +66,7 @@ class CoupledODE(VAE_Baseline):
 		return pred_node,pred_edge, all_extra_info, None
 
 
-	def compute_edge_initials(self,first_point_enc,num_atoms):
+	def compute_edge_initials(self, first_point_enc,num_atoms):
 		'''
 
 		:param first_point_enc: [K*N,D]

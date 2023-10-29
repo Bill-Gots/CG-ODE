@@ -94,9 +94,9 @@ if __name__ == '__main__':
 
     #Loading Data
     print("predicting data at: %s" % args.dataset)
-    dataloader = ParseData(args =args)
-    train_encoder, train_decoder, train_graph, train_batch, num_atoms = dataloader.load_train_data(is_train=True)
-    val_encoder, val_decoder, val_graph, val_batch, _ = dataloader.load_train_data(is_train=False)
+    dataloader = ParseData(args = args)
+    train_encoder, train_decoder, train_graph, train_batch, num_atoms = dataloader.load_train_data(is_train = True)
+    val_encoder, val_decoder, val_graph, val_batch, _ = dataloader.load_train_data(is_train = False)
     args.num_atoms = num_atoms
     input_dim = dataloader.num_features
 

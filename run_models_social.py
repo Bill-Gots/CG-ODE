@@ -126,9 +126,9 @@ if __name__ == '__main__':
 
     # Optimizer
     if args.optimizer == "AdamW":
-        optimizer =optim.AdamW(model.parameters(),lr=args.lr,weight_decay=args.l2)
+        optimizer = optim.AdamW(model.parameters(), lr = args.lr, weight_decay = args.l2)
     elif args.optimizer == "Adam":
-        optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.l2)
+        optimizer = optim.Adam(model.parameters(), lr = args.lr, weight_decay = args.l2)
 
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, 1000, eta_min=1e-9)
 
