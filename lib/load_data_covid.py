@@ -440,7 +440,7 @@ class ParseData(object):
 
         edge_weight_matrix = edge_weight_matrix * edge_exist_matrix
         edge_index, edge_weight_attr = utils.convert_sparse(edge_weight_matrix)
-        assert np.sum(edge_weight_matrix!=0)!=0  #at least one edge weight (one edge) exists.
+        assert np.sum(edge_weight_matrix != 0) != 0  #at least one edge weight (one edge) exists.
 
         edge_time_matrix = (edge_time_matrix + 3) * edge_exist_matrix # padding 2 to avoid equal time been seen as not exists.
         _, edge_time_attr = utils.convert_sparse(edge_time_matrix)
